@@ -7,7 +7,7 @@ class SudokuBoard:
         """`IMPORTANTE` debo verificar que los valores de entrada sean 81
         """
         initial_values = initial_values if initial_values else [[0 for _ in range(9)] for _ in range(9)]
-        self.grid = [[Var((i, j), {initial_values[i][j]} if initial_values[i][j] else set(range(1,10))) for j in range(9)] for i in range(9)]
+        self.grid = [[Var((i, j), [initial_values[i][j]] if initial_values[i][j] else list(range(1,10))) for j in range(9)] for i in range(9)]
         self.propagate_constraints()
         
         
@@ -41,6 +41,9 @@ class SudokuBoard:
     
     def remove_values(self, row: int, col: int, value: int) -> None:
         """Método auxiliar de `propagate_constraints` que dirige la propagación de las restricciones.
+        
+        Nota: Sería buena idea aplicar la restricción de dominos iguales, si dos variables con dominios de longitud 2, iguales, están dentro de una misma
+        restricción, se puede eliminar con seguridad ambos valores de los dominios de las otras variables relacionadas por restricciones
         
         Args:
             row (int): fila de la variable asignada (que contiene el valor a eliminar).

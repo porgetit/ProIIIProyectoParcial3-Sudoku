@@ -1,6 +1,6 @@
-from board import SudokuBoard
+from generator import BoardGenerator
 
-board = SudokuBoard()
+board = BoardGenerator(3).generate()
 board = [[board.var(row, col).get_value() if board.var(row, col).is_assigned() else 0 for col in range(9)] for row in range(9)]
 for row in board:
     print(row)
