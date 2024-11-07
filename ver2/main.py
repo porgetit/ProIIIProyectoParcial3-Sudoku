@@ -1,10 +1,18 @@
 from generator import BoardGenerator
+from solver import ChronoBacktrack
+from board import SudokuBoard
 
-board = BoardGenerator(3).generate()
-board = [[board.var(row, col).get_value() if board.var(row, col).is_assigned() else 0 for col in range(9)] for row in range(9)]
-for row in board:
-    print(row)
+def pboard(board: SudokuBoard) -> None:
+    for row in [[board.var(row, col).get_value() if board.var(row, col).is_assigned() else 0 for col in range(9)] for row in range(9)]:
+        print(row)
+
+board = BoardGenerator(0).generate()
+pboard(board)
     
-'''
-Lo de arribe es solo para comprobar que tanto el obj board como el var funcionen correctamente, al menos en lo basico
-'''
+solver = ChronoBacktrack(board)
+try:
+    solver.solve()
+    pboard(solver.board)
+except RuntimeError:
+    print("No se pudo solucionar el tablero")
+    

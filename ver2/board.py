@@ -1,5 +1,5 @@
 from var import Var
-from typing import List
+from typing import List, Tuple
 
 class SudokuBoard:
     
@@ -130,3 +130,10 @@ class SudokuBoard:
         except RuntimeError as r:
             raise RuntimeError(r.args[0])
         
+    def get_unassigned_vars(self) -> List[Tuple[int, int]]:
+        """Este método retorna las variables no asignadas en el tablero
+
+        Returns:
+            List[Var]: Lista de variables sin asignar
+        """
+        return [(row, col) for col in range(9) for row in range(9) if self.var(row, col).is_assigned()]
