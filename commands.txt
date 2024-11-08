@@ -1,0 +1,11 @@
+-- Exportar entorno
+conda env export -n nombre_del_entorno > entorno.yml
+
+-- Importar entorno
+conda env create -f entorno.yml
+
+-- Exportar requisitos Python
+pip freeze > requirements.txt
+
+-- Importar requisitor Python
+pip install -r requirements.txt
