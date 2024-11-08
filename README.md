@@ -59,3 +59,4 @@ Soy consciente de las limitaciones de esta implementación. Llevo más de una se
 - `commands.txt` instrucciones para exportar e importar el entorno de trabajo junto con sus distintos requistos.
 - `entorno.yml` entorno de anaconda sobre el que se ha construido el proyecto.
 - `requirements.txt` listado de requisitos de python listo para importar con el comando `pip install -r requirements.txt`
+- `boards.txt` lista de los tableros probados con sus respectivos códigos de [sudokumania](https://www.sudokumania.com.ar/) si corresponde.
