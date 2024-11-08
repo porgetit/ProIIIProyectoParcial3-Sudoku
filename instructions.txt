@@ -1,2 +1,0 @@
-conda env export -n nombre_del_entorno > entorno.yml
-conda env create -f entorno.yml
