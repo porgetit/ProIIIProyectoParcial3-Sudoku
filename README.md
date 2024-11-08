@@ -18,6 +18,7 @@ La clase `Var` representa una celda del tablero de Sudoku con su respectivo domi
 
 ### `SudokuBoard`
 La clase `SudokuBoard` modela el tablero de Sudoku y su lógica de restricciones. Crea una matriz 9x9 de objetos `Var`, permitiendo asignar valores iniciales y aplicar reglas de restricción en filas, columnas y subgrillas.
+Además, implementa el atributo `verbose` que permite extender el contexto en la propagación de restricciones.
 
 **Métodos principales**:
 - `propagate_constraints()`: Aplica restricciones en todo el tablero.
@@ -35,6 +36,7 @@ La clase `SudokuBoard` modela el tablero de Sudoku y su lógica de restricciones
 
 ### `SudokuSolver`
 Esta clase implementa el algoritmo de resolución utilizando *backjumping*. Toma un objeto `SudokuBoard` y resuelve el tablero aplicando técnicas de resolución y retroceso.
+Además, implementa el atributo `verbose` que permite extender el contexto en el resolutor.
 
 **Métodos principales**:
 - `solve() -> bool`: Dispara el algoritmo de resolución.
